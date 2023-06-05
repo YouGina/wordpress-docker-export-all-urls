@@ -23,12 +23,5 @@ wp option update siteurl $WORDPRESS_WEBSITE_URL
 wp option update home $WORDPRESS_WEBSITE_URL
 
 echo " Activating Wordpress plugins...";
-# Edit the lines below to install and activate plugins on installation.
-# wp plugin install bbpress --activate 
 
-# Optionally use this for the latest dev version: 
-# wp plugin install bbpress --version=dev --activate 
-
-# Edit the lines below to activate plugins on installation. These plugins should exist in the plugins folder.
-# wp plugin activate elementor
-# wp plugin activate essential-addons-for-elementor-lite
+wp plugin install export-all-urls --activate 
