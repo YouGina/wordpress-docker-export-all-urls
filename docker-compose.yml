@@ -20,7 +20,9 @@ services:
   
   
   wordpress:
-    image: wordpress
+    build:
+      context: .
+      dockerfile: Dockerfile-wp
     restart: always
     ports:
       - 8080:80
@@ -32,6 +34,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins/
+      - ./docker/php/php_config.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     healthcheck:
       test: curl --fail -s http://localhost:80/ || exit 1
       interval: 10s
@@ -41,7 +44,7 @@ services:
   cli:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-cli
     volumes:
       - wordpress:/wordpress
       - ./plugins:/wordpress/wp-content/plugins/
