@@ -1,5 +1,5 @@
 #!/bin/sh
-rm wp-config.php
+# rm wp-config.php
 echo " Configuring Wordpress database...";
 wp config create --dbhost=$MYSQL_HOST \
 		--dbname=$MYSQL_DATABASE \
